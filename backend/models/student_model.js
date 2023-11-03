@@ -23,6 +23,9 @@ const student={
       return db.query('update student set fname=?, lname=?, username=?, password=? where idstudent=?',
       [student.fname, student.lname, student.username, hash, id], callback);
     });
+  },
+  checkPassword:function(username, callback){
+    return db.query('select password from student where username=?',[username], callback);
   }
 
 }
